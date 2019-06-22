@@ -26,7 +26,7 @@ const server = http
       shell.echo(ip)
       shell.exec(
         `vboxmanage createvm --name ${name} --ostype Ubuntu_64 --register;\n` +
-        `vboxmanage modifyvm ${name} --memory ${ram} --vram 64 --acpi on --boot1 dvd --vrde on --firmware efi;\n` +
+        `vboxmanage modifyvm ${name} --memory ${ram} --vram 64 --acpi on --boot1 dvd --vrde on --firmware efi --cpus ${cpu};\n` +
         `vboxmanage clonehd ${base} ${discoNovo} --format VDI;\n` +
         `vboxmanage storagectl ${name} --name "IDE Controller" --add ide;\n` +
         `vboxmanage storageattach ${name} --storagectl "IDE Controller" --port 0 --device 0 --type hdd --medium ${discoNovo}; \n`
